@@ -1,0 +1,1 @@
+ Todos app create using Angular.js for study purposes

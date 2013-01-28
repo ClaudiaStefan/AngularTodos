@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <title> Index </title>
+    <link rel="stylesheet" href="todo.css">
+    <script src="Todo.js"> </script>
+</head>
+<body>
+    <h2>Todos</h2>
+    <div id="todoController" ng-controller = "TodosCtrl">
+
+        <span> {{remaining()}} of {{todos.length}} remaining </span>
+        <input ng-model="search"> 
+        <select ng-model="orderProp">
+            <option value="text"> Alphabetical </option>
+            <option value="age"> In order they were added</option>
+        </select> 
+        <table> 
+        <tr><th>~~~~ </th><th>Todos </th><th>Task completition time</th><th>~~~~ </th></tr> 
+        <tr ng-repeat = "todo in todos | filter:search | orderBy:orderProp">
+        <td >
+            <input type = "checkbox" ng-model = "todo.done">
+        </td>
+        <td>  
+            <span class = "done-{{todo.done}}" > {{todo.text}} </span>
+        </td>
+        <td>
+            <span class = "done-{{todo.done}}" > {{todo.time}} hours  </span>
+        </td>    
+        <td>    
+            <button id="delete" ng:click="deleteTodo()"> Delete</button>
+        </td>
+        </tr>    
+        </table>
+        <form name = "myForm" ng-submit = "addTodo()">
+            <label> Task name: </label>
+            <input type = "text" name="input" ng-model = "todoText" required>
+            <span class="error" ng-show="myForm.input.$error.required">*</span><br>
+            <label> Task completition time (aprox. in hours): </label>
+            <input type = "number" name="input" ng-model = "todoTime" required min = "0" max = "200">
+            <span class="error" ng-show="myForm.list.$error.required">*</span>
+            <br>
+
+            <input type = "submit" id="add" value = "Add">
+        </form>
+        <button id="save" ng:click="saveTodoList()"> Save Records </button>
+    </div>
+
+</body>
+</html>

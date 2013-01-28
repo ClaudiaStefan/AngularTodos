@@ -1,0 +1,46 @@
+<div  class="toDo" id="todoController" ng-controller = "TodosCtrl">
+        <label for="search" > Search </label>
+        <input ng-model="search" name="search">     
+              
+        <select ng-model="orderProp">
+            <option  ng-selected="selected"> Order </option>
+            <option value="text"> Alphabetical </option>
+            <option value="age"> In order they were added</option>
+        </select> <br>
+        <span id="remaining"> {{remaining()}} of {{todos.length}} remaining </span>
+        <table> 
+        <tr><th>~~~~ </th><th>Todos </th><th>Task completition time</th><th>~~~~ </th></tr> 
+        <tr ng-repeat = "todo in todos | filter:search | orderBy:orderProp">
+        <td >
+            <input type = "checkbox" ng-model = "todo.done">
+        </td>
+        <td>  
+            <span class = "done-{{todo.done}}" > {{todo.text}} </span>
+        </td>
+        <td>
+            <span class = "done-{{todo.done}}" > {{todo.time}} hours  </span>
+        </td>    
+        <td>    
+            <button id="delete" ng:click="deleteTodo()"> Delete</button>
+            <button id="showAdd" ng:click="showAdd()"> Add</button>
+            <button id="edit" ng:click="editTodo()"> Edit</button>
+             <a href="#/todos/{{this.todos.indexOf(this.todo)}}" > Task detail </a>
+        </td>
+        </tr>    
+        </table>
+      
+        <form name = "myForm" ng-submit = "addTodo()" ng-show="checked">
+            <label for="task"> Task name: </label>
+            <input type = "text" name="task" ng-model = "todoText" required>
+            <span class="error" ng-show="myForm.task.$error.required">*</span><br>
+            <label for="time"> Task completition time (aprox. in hours): </label>
+            <input type = "number" name="time" ng-model = "todoTime" required min = "0" max = "200">
+            <span class="error" ng-show="myForm.time.$error.required">*</span>
+            <br>
+
+            <input type = "submit" id="add" value = " Add / Temporarily save task">
+        </form>
+        <button id="save" ng:click="saveTodoList()"> Save tasks permanently </button>
+        <button id="deleteAll" ng:click="deleteAll()"> Delete all tasks </button>
+
+    </div>

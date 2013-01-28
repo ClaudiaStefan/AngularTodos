@@ -34,5 +34,14 @@ function TodosCtrl($scope){
     $scope.saveTodoList = function() {
         localStorage.setItem('toDoList',JSON.stringify($scope.todos));
     }
+    $scope.selected = function() {
+        return true;
+    }
+    $scope.showAdd = function() {
+        $scope.checked = true;
+    }
+    $scope.editTodo = function() {
+        alert("Edit");
+    }
    
 }

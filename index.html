@@ -9,13 +9,15 @@
 <body>
     <h2>Todos</h2>
     <div id="todoController" ng-controller = "TodosCtrl">
-
-        <span> {{remaining()}} of {{todos.length}} remaining </span>
-        <input ng-model="search"> 
+        <label for="search" > Search </label>
+        <input ng-model="search" name="search">     
+              
         <select ng-model="orderProp">
+            <option  ng-selected="selected"> Order </option>
             <option value="text"> Alphabetical </option>
             <option value="age"> In order they were added</option>
-        </select> 
+        </select> <br>
+        <span id="remaining"> {{remaining()}} of {{todos.length}} remaining </span>
         <table> 
         <tr><th>~~~~ </th><th>Todos </th><th>Task completition time</th><th>~~~~ </th></tr> 
         <tr ng-repeat = "todo in todos | filter:search | orderBy:orderProp">
@@ -30,21 +32,25 @@
         </td>    
         <td>    
             <button id="delete" ng:click="deleteTodo()"> Delete</button>
+            <button id="showAdd" ng:click="showAdd()"> Add</button>
+            <button id="edit" ng:click="editTodo()"> Edit</button>
         </td>
         </tr>    
         </table>
-        <form name = "myForm" ng-submit = "addTodo()">
-            <label> Task name: </label>
-            <input type = "text" name="input" ng-model = "todoText" required>
-            <span class="error" ng-show="myForm.input.$error.required">*</span><br>
-            <label> Task completition time (aprox. in hours): </label>
-            <input type = "number" name="input" ng-model = "todoTime" required min = "0" max = "200">
-            <span class="error" ng-show="myForm.list.$error.required">*</span>
+      
+        <form name = "myForm" ng-submit = "addTodo()" ng-show="checked">
+            <label for="task"> Task name: </label>
+            <input type = "text" name="task" ng-model = "todoText" required>
+            <span class="error" ng-show="myForm.task.$error.required">*</span><br>
+            <label for="time"> Task completition time (aprox. in hours): </label>
+            <input type = "number" name="time" ng-model = "todoTime" required min = "0" max = "200">
+            <span class="error" ng-show="myForm.time.$error.required">*</span>
             <br>
 
             <input type = "submit" id="add" value = "Add">
         </form>
         <button id="save" ng:click="saveTodoList()"> Save Records </button>
+
     </div>
 
 </body>

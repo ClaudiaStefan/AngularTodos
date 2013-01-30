@@ -1,3 +1,7 @@
+/**
+ * [TodosCtrl description]
+ * @param {[type]} $scope [description]
+ */
 function TodosCtrl($scope){
     $scope.todos = JSON.parse(localStorage.getItem('toDoList'));
     $scope.orderProp='age';
@@ -20,6 +24,10 @@ function TodosCtrl($scope){
         $scope.todoTime = '';
         $scope.checked = false;
     };
+    /**
+     * [remaining description]
+     * @return {[type]} [description]
+     */
     $scope.remaining = function() {
         var count = 0;
         angular.forEach($scope.todos, function(todo) {
@@ -47,7 +55,10 @@ function TodosCtrl($scope){
     $scope.showAdd = function() {
         $scope.checked = true;
     }
-    
+    /**
+     * [editTodo description]
+     * @return {[type]} [description]
+     */
     $scope.editTodo = function() {
         $scope.currentTodo =this.todo;
         $scope.checked = true;

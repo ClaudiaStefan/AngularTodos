@@ -1,51 +1,57 @@
+/*Decoration on done todo task*/
 .done-true {
-	text-decoration: line-through;
-	color: #FF3399;
+  text-decoration: line-through;
+  color: #FF3399;
 }
+/*Round corners, width, margin, border and background-color for heading
+and controlers*/
+h2, #todoController, .toDo {
+     -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+   -khtml-border-radius: 10px 10px 10px 10px;
+          border-radius: 10px 10px 10px 10px;
+  width: 600px;
+  margin : 20px;
+  background-color: #b2b2b2;          
+}
+/* Heading height, text-alignement and font-size*/
 h2 {
-	border: 1px solid #FF3399;
-	background-color: #b2b2b2;
-	text-align:center;
-	width: 600px;
-	-moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    -khtml-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
+  text-align:center;
+  height: 50px;
+  font-size: 35px;
 }
-td {
-	border: 1px solid #FF3399;
+/*Border settings*/
+table, td, label, #todoController, .toDo  {
+  border-collapse: separate;
+  border-spacing: 2px;
+  border: 1px solid #FF3399;
 }
-input, textarea {
-	background-color: #cccccc;
-	border: 1px solid #FF3399;
+/*Margin settings*/
+table, label {
+  margin : 10px;
 }
-select {
-	background-color: #cccccc;
+/*Backrgorund and border settings*/
+input, textarea, select {
+  background-color: #cccccc;
+  border: 1px solid #FF3399;
 }
-#todoController, .toDo {
-	border: 1px solid #FF3399;
-	width: 600px;
-	background-color: #b2b2b2;
-	-moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    -khtml-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
-}
+/*Error color*/
 .error {
-	color:red;
+  color:red;
 }
-button {
-	border: 1px solid #FF3399;
+/*Border settings*/
+button, h2 {
+  border: 1px solid #FF3399;
 }
+/*Background color settings*/
 #add,button{
-	background-color: #CC9999;
-	-moz-border-radius: 5px 5px 5px 5px;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    -khtml-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;	
+  background-color: #CC9999;
 }
+/*Remainig tasks span*/
 #remaining{
-	color: #FF3399;
-	font-style: oblique;
-	font-size: 1.5pc;
+  margin : 20px;
+  color: #FF3399;
+  font-style: oblique;
+  font-size: 1.5pc;
 }
+
